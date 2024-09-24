@@ -111,12 +111,7 @@
 .header-right {
   display: flex;
   align-items: center;
-}
-
-.language-currency {
-  margin-right: 20px;
-  font-size: 14px;
-  color: #333;
+  position: relative;
 }
 
 .user-actions {
@@ -154,3 +149,179 @@
 .user-actions span:last-child:hover {
   background-color: #e55a00;
 }
+
+.language-currency {
+  margin-right: 20px;
+  font-size: 14px;
+  color: #333;
+  cursor: pointer;
+  position: relative;
+}
+
+.language-currency:hover {
+  color: #ff6a00; /* Alibaba's orange color */
+}
+
+.dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: -50%;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  min-width: 370px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  box-sizing: border-box;
+}
+
+/* Mũi tên bóng đổ */
+.dropdown::before {
+  content: "";
+  position: absolute;
+  top: -26px;
+  right: 213px;
+  border-width: 14px;
+  border-style: solid;
+  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent; /* Màu bóng đổ xám nhạt */
+  filter: blur(2px); /* Làm nhòe bóng đổ */
+  z-index: -1; /* Đặt phía sau mũi tên chính */
+}
+
+/* Mũi tên chính */
+.dropdown::after {
+  content: "";
+  position: absolute;
+  top: -20px; /* Đẩy mũi tên chính lên phía trên */
+  right: 216px; /* Điều chỉnh vị trí ngang */
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent transparent white transparent; /* Mũi tên màu trắng */
+}
+
+.dropdown h3 {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.dropdown p {
+  font-size: 12px;
+  color: #777;
+  margin-bottom: 20px;
+}
+
+.dropdown-selection {
+  margin-bottom: 15px;
+}
+
+.dropdown-selection label {
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.dropdown-selection select {
+  width: 100%;
+  padding: 5px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.dropdown-selection select option {
+  cursor: pointer;
+}
+
+.save-btn {
+  width: 100%;
+  padding: 10px;
+  background-color: #ff6a00;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.save-btn:hover {
+  background-color: #e55a00;
+}
+
+.header__navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header__navbar-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  /* margin: 0; */
+  padding: 0 20px;
+  width: 100%;
+}
+
+.header__navbar-list .header__navbar-item {
+  margin: 0 12px;
+  font-size: 1.5rem;
+  position: relative;
+}
+
+.navbar__item-categories {
+  position: absolute;
+  left: 0;
+  background-color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  height: 300px;
+  /* display: none; */
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease-in-out;
+}
+
+.navbar__item-categories h2 {
+  color: rgba(0, 0, 0, 0.54);
+  font-size: 2.5rem;
+  font-weight: 500;
+  margin-left: 137px;
+  box-sizing: border-box;
+}
+
+.category__list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  list-style: none;
+}
+
+.category__list li {
+  width: 100%;
+  border: 1px solid #ccc;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.category__list li img {
+  height: 100px;
+}
+
+.category__list li p {
+  font-size: 1.5rem;
+}
+
+
+.dropdown-active {
+  max-height: 300px; /* Điều chỉnh chiều cao phù hợp */
+}
+
+/* .header__navbar-item-has-category:hover + .navbar__item-categories {
+  display: block;
+} */
