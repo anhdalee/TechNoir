@@ -9,10 +9,14 @@ import menu_5 from "./menu_5.png";
 import menu_6 from "./menu_6.png";
 import menu_7 from "./menu_7.png";
 import menu_8 from "./menu_8.png";
+import buyer from "./buyers.png";
+import suppliers from "./suppliers.png"
 
 export const assets = {
   logo,
-  cross_icon
+  cross_icon,
+  buyer,
+  suppliers
 };
 
 export const menu_list = [

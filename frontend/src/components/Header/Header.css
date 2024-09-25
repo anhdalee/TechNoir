@@ -1,7 +1,8 @@
 .header {
-  height: 110px;
+  height: 122px;
   border-bottom: 1px solid #ccc;
   /* margin-top: 20px; */
+  position: relative;
 }
 
 .header-with-search {
@@ -46,6 +47,7 @@
   box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   z-index: 99;
+  animation: fadein ease 0.3s;
   /* display: none; */
 }
 
@@ -268,7 +270,15 @@
 .header__navbar-list .header__navbar-item {
   margin: 0 12px;
   font-size: 1.5rem;
-  position: relative;
+  padding: 12px 0;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+
+.header__navbar-item-has-category:hover .navbar__item-categories,
+.header__navbar-item-has-trade:hover .navbar__item-trade {
+  display: block;
 }
 
 .navbar__item-categories {
@@ -277,10 +287,21 @@
   background-color: #fff;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   height: 300px;
-  /* display: none; */
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.5s ease-in-out;
+  top: calc(100% + 2px);
+  z-index: 1000;
+  animation: fadein ease 0.3s;
+  display: none;
+}
+
+.navbar__item-categories::before,
+.navbar__item-trade::before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  top: -18px;
+  left: 0;
+  height: 20px;
 }
 
 .navbar__item-categories h2 {
@@ -317,7 +338,6 @@
   font-size: 1.5rem;
 }
 
-
 .dropdown-active {
   max-height: 300px; /* Điều chỉnh chiều cao phù hợp */
 }
@@ -325,3 +345,137 @@
 /* .header__navbar-item-has-category:hover + .navbar__item-categories {
   display: block;
 } */
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+    /* top: 100%; */
+  }
+  to {
+    opacity: 1;
+    /* top: 0%; */
+  }
+}
+.navbar__item-trade {
+  position: absolute;
+  top: calc(100% + 2px);
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none;
+  animation: fadein ease 0.3s;
+}
+
+.navbar__item-trade .trade-content {
+  min-width: 1200px;
+  max-width: 1600px;
+  margin: 40px auto;
+  padding: 0 40px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.navbar__item-trade .trade-info {
+  width: 50%;
+  margin: 40px 40px 40px 134px;
+}
+
+.navbar__item-trade .trade-info img {
+  width: 212px;
+  height: 32px;
+}
+
+.navbar__item-trade .trade-info h3 {
+  display: block;
+  margin: 20px 0 28px;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 40px;
+}
+
+.navbar__item-trade .trade-info button {
+  display: block;
+  flex-shrink: 0;
+  height: 36px;
+  padding: 0 24px;
+  outline: none;
+  border-radius: 9999px;
+  background-color: #f60;
+  color: #fff !important;
+  text-align: center;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 36px;
+  cursor: pointer;
+  /* display: block; */
+  width: 180px;
+  border: none;
+}
+
+.navbar__item-trade .trade-info button:hover {
+  background-color: #e55a00;
+}
+
+.navbar__item-trade .trade-cards {
+  display: flex;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 716px;
+}
+
+.navbar__item-trade .trade-cards .trade-link {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 49%;
+  height: 120px;
+  margin-bottom: 20px;
+  padding: 20px;
+  border-radius: 16px;
+  background-color: #f7f7f7;
+  text-decoration: none;
+}
+
+.navbar__item-trade .trade-cards .trade-link .trade-text {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: calc(100% - 76px);
+  margin-left: 16px;
+  font-size: 1.3rem;
+  line-height: 26px;
+  color: #000;
+}
+
+.navbar__item-trade .trade-cards .trade-link .trade-text h3 {
+  font-weight: 500;
+}
+
+.navbar__item-trade .trade-cards .trade-link .trade-text p {
+  font-size: 2rem;
+}
+
+
+.navbar__item-help {
+  position: absolute;
+  top: calc(100% + 2px);
+  left: 0;
+  background-color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  width: 100%;
+}
+
+.navbar__item-help .help-content {
+  display: flex;
+  align-items: center;
+}
+
+.navbar__item-help .help-content .help-item img {
+  height: 70px;
+  width: 70px;
+}
