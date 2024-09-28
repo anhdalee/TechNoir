@@ -228,20 +228,32 @@ const Header = ({ setShowLogin }) => {
               </li>
             </ul>
             <ul className="header__navbar-list">
-              <li className="header__navbar-item">
+              <li className="header__navbar-item header__navbar-item-has-help">
                 Trung tâm trợ giúp
                 <div className="navbar__item-help">
                   <div className="help-content">
-                    <a href="" className="help-item">
-                      <img src={assets.buyer} alt="" />
-                      <p>For buyers</p>
-                    </a>
-                    <a href="" className="help-item">
-                      <img src={assets.suppliers} alt="" />
-                      <p>For Suppliers</p>
-                    </a>
                     <div className="help-link">
-                      
+                      <a href="" className="help-item">
+                        <img src={assets.buyer} alt="" />
+                        <p>For buyers</p>
+                      </a>
+                      <a href="" className="help-item">
+                        <img src={assets.suppliers} alt="" />
+                        <p>For Suppliers</p>
+                      </a>
+                    </div>
+                    <div className="help-link-center">
+                      <ul>
+                        <li>
+                          <a href="">Mở cuộc tranh chấp</a>
+                        </li>
+                        <li>
+                          <a href="">Báo cáo vi phạm IPR</a>
+                        </li>
+                        <li>
+                          <a href="">Báo cáo lạm dụng</a>
+                        </li>
+                      </ul>
                     </div>
                   </div>
                 </div>
